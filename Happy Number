@@ -1,0 +1,21 @@
+class Solution {
+    public boolean isHappy(int n) {
+     Set<Integer> set = new HashSet<Integer>();
+        while(n!=1 || set.contains(n)) {
+            if(set.contains(n) || (n!=1 && n<=0)) {
+                
+                return false;
+            }
+            set.add(n);
+            
+            int temp = n ;
+            int sum = 0;
+            while(temp!=0) {
+                sum += Math.pow(temp%10,2);
+                temp = temp/10;
+            }
+            n = sum;                
+        }
+        return true;   
+    }
+}
